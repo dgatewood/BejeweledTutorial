@@ -1,0 +1,39 @@
+<html>
+<head>
+<style>
+*{padding: 0; margin:0;}
+canvas{ background: #F5F5F5; display: block; margin: 0 auto;}
+</style>
+</head>
+<body>
+<canvas id= "myCanvas" width="800" height= "600"></canvas>
+<script>
+
+var canvas = document.getElementById("myCanvas");
+var ctx = canvas.getContext("2d");
+document.addEventListener("mousemove", mouseMoveHandler, false);
+document.addEventListener("mousedown", mouseDownHandler, false);
+document.addEventListener("mouseup", mouseUpHandler, false);
+var pX = 0;
+var pY = 0;
+var mouseIsDown = false;
+
+function mouseMoveHandler(e) {
+	pX = e.clientX - canvas.offsetLeft;
+	pY = e.clientY - canvas.offsetTop;
+}
+function mouseUpHandler(event) {
+	mouseIsDown = false;
+}
+function mouseDownHandler(event) {
+	mouseIsDown = true;
+}
+
+
+function draw() {
+	ctx.clearRect(0, 0, 800, 600);
+}
+setInterval(draw, 10);
+</script>
+</body>
+</html>
